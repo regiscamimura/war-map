@@ -1,0 +1,41 @@
+{
+	"War": {
+		"Vietnam War": {
+			"info": [
+				"1962-1973",
+				"Rate of PTSD Among Male Veterans: 15.2%",
+				"Rate of PTSD Among Female Veterans: 8.1%"
+			],
+			"countries": {
+				"Vietnam": 1
+			}
+		},
+		"Gulf War": {
+			"info": [
+				"1991",
+				"Rate of PTSD Among Veterans: 12.1%"
+			],
+			"countries": {
+				"Iraq": 1, "Kuwait": 1, "Saudi Arabia": 1
+			}
+		},
+		"Global War on Terror": {
+			"info": [
+				"2001-2014",
+				"Rate of PTSD Among Veterans: 13.8%"
+			],
+			"countries": {
+				"Afghanistan": 1, "Iraq": 1
+			}
+		}
+	},
+	"Country": {
+		"Vietnam": ["Vietnam War"],
+		"Afghanistan": ["Global War on Terror"],
+		"Iraq": ["Global War on Terror", "Gulf War"],
+		"Kuwait": ["Gulf War"],
+		"Saudi Arabia": ["Gulf War"]
+
+	}
+}	
+
