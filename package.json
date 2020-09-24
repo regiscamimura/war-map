@@ -1,6 +1,7 @@
 {
   "name": "vector-layer",
   "dependencies": {
+    "app.css": "^0.1.2",
     "ol": "6.4.3"
   },
   "devDependencies": {

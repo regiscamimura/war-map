@@ -11,7 +11,7 @@ import { Fill, Stroke, Style, Text } from 'ol/style';
 import OSM from 'ol/source/OSM';
 import TileLayer from 'ol/layer/Tile';
 
-const DATA = require('./data/stats.json');
+const DATA = require('./data/stats.json'); 
 
 var style = function(f) {
 	return new Style({
@@ -111,11 +111,12 @@ var displayFeatureInfo = function (pixel) {
 		country = feature.get('name');
 		var wars = DATA.Country[country];
 		wars.forEach((war)=>{
-			html += '<h5>'+war+'</h5>';
+			html += '<h5>'+war+' ('+DATA.War[war].info[0]+')</h5>';
 			var stats = DATA.War[war].info;
 		
 			html += '<ul>';
-			stats.forEach(rec=>{
+			stats.forEach((rec, index)=>{
+				if (index == 0 ) return;
 				html += '<li>'+rec+'</li>';
 			});
 			html += '</ul>';
@@ -128,8 +129,25 @@ var displayFeatureInfo = function (pixel) {
 		});
 		info.innerHTML = html;//feature.getId() + ': ' + feature.get('name');
 		info.style.display = 'block';
-		info.style.top = (pixel[1] - info.offsetHeight - 10) + 'px';
-		info.style.left = (pixel[0] - 13)+'px';
+		info.style.top = (pixel[1] - info.offsetHeight) + 'px';
+		info.style.left = (pixel[0])+'px';
+		info.classList.remove("tooltip-bottom");
+		info.classList.remove("tooltip-left");
+
+		var el = info.getBoundingClientRect();
+		
+		if (el.x + el.width > window.innerWidth - 15) {
+			console.log(info.width);
+			info.style.left = (pixel[0] - info.clientWidth + 20 )+ 'px';
+			console.log(info.style.left);
+			info.classList.add("tooltip-left");
+		}
+		if (el.y < 10) {
+			info.style.top = pixel[1] + 30 + 'px';
+			info.classList.add("tooltip-bottom");
+
+		}
+	
 
 		
 	} else {

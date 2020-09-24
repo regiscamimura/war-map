@@ -16,7 +16,7 @@
 				"Rate of PTSD Among Veterans: 12.1%"
 			],
 			"countries": {
-				"Iraq": 1, "Kuwait": 1, "Saudi Arabia": 1
+				"Iraq": 1, "Kuwait": 1
 			}
 		},
 		"Global War on Terror": {
@@ -33,9 +33,7 @@
 		"Vietnam": ["Vietnam War"],
 		"Afghanistan": ["Global War on Terror"],
 		"Iraq": ["Global War on Terror", "Gulf War"],
-		"Kuwait": ["Gulf War"],
-		"Saudi Arabia": ["Gulf War"]
-
+		"Kuwait": ["Gulf War"]
 	}
 }	
 
